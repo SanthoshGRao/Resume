@@ -11,7 +11,7 @@ export default function RightSidebar() {
   ];
 
   return (
-    <aside className="w-64 border-l border-slate-800 bg-slate-950 p-6 select-none shrink-0 flex flex-col gap-6 h-full overflow-y-auto">
+    <aside className="w-64 border-l border-border bg-[#0a0a0c]/80 p-6 select-none shrink-0 flex flex-col gap-6 h-full overflow-y-auto backdrop-blur-md">
       <div>
         <span className="text-[9px] font-bold text-slate-600 uppercase tracking-widest font-mono block mb-4">
           SYSTEM TELEMETRY
@@ -23,7 +23,7 @@ export default function RightSidebar() {
             return (
               <div 
                 key={i} 
-                className="border border-slate-900 bg-slate-950 p-4 rounded-lg flex flex-col gap-1.5 transition-all hover:border-slate-800"
+                className="border border-border bg-panel/40 p-4 rounded-lg flex flex-col gap-1.5 transition-all hover:border-border-hover"
               >
                 <div className="flex items-center justify-between text-slate-500">
                   <span className="text-[9px] font-mono tracking-wider font-semibold">{metric.label}</span>
@@ -42,19 +42,19 @@ export default function RightSidebar() {
         <span className="text-[9px] font-bold text-slate-600 uppercase tracking-widest font-mono block">
           ENGINE STATE
         </span>
-        <div className="bg-slate-950 border border-slate-900 rounded-lg p-3 flex flex-col gap-2 text-[10px] font-mono">
+        <div className="bg-panel/20 border border-border rounded-lg p-3 flex flex-col gap-2 text-[10px] font-mono">
           <div className="flex items-center justify-between">
             <span className="text-slate-500">AI AGENT LAYER</span>
             <span className="text-green-400 font-bold">READY</span>
           </div>
-          <div className="w-full bg-slate-900 h-1 rounded-full overflow-hidden">
+          <div className="w-full bg-slate-950 h-1 rounded-full overflow-hidden">
             <div className="bg-green-400 h-full w-[90%] rounded-full"></div>
           </div>
           <div className="flex items-center justify-between mt-1">
             <span className="text-slate-500">CLIENT CODES</span>
             <span className="text-blue-400 font-bold">OPTIMIZED</span>
           </div>
-          <div className="w-full bg-slate-900 h-1 rounded-full overflow-hidden">
+          <div className="w-full bg-slate-950 h-1 rounded-full overflow-hidden">
             <div className="bg-blue-400 h-full w-[100%] rounded-full"></div>
           </div>
         </div>

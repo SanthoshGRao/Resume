@@ -73,7 +73,7 @@ export default function ContactTab() {
 
   return (
     <div className="max-w-2xl mx-auto flex flex-col gap-6 py-2 h-full">
-      <div className="flex items-center justify-between border-b border-slate-900 pb-3 select-none">
+      <div className="flex items-center justify-between border-b border-border pb-3 select-none">
         <h2 className="text-xs font-mono font-bold tracking-widest text-slate-400 uppercase">
           SECURE COMM TERMINAL
         </h2>
@@ -85,7 +85,7 @@ export default function ContactTab() {
       {/* Terminal Viewport */}
       <div 
         onClick={focusInput}
-        className="flex-1 min-h-[380px] bg-slate-950/80 border border-slate-800 rounded-xl p-5 font-mono text-xs flex flex-col gap-3 overflow-y-auto cursor-text shadow-inner"
+        className="flex-1 min-h-[380px] bg-panel/30 border border-border rounded-xl p-5 font-mono text-xs flex flex-col gap-3 overflow-y-auto cursor-text shadow-inner"
       >
         <div className="flex-1 flex flex-col gap-3 overflow-y-auto">
           {history.map((log, i) => (
@@ -93,7 +93,7 @@ export default function ContactTab() {
               key={i} 
               className={`whitespace-pre-wrap leading-relaxed ${
                 log.type === "input" 
-                  ? "text-blue-400 font-semibold" 
+                  ? "text-accent font-semibold" 
                   : log.type === "system" 
                   ? "text-slate-500 italic" 
                   : "text-slate-300"
@@ -106,8 +106,8 @@ export default function ContactTab() {
         </div>
 
         {/* Input prompt */}
-        <form onSubmit={handleCommandSubmit} className="flex items-center gap-2 border-t border-slate-900 pt-3 mt-auto">
-          <Terminal className="w-4 h-4 text-blue-500 shrink-0" />
+        <form onSubmit={handleCommandSubmit} className="flex items-center gap-2 border-t border-border pt-3 mt-auto">
+          <Terminal className="w-4 h-4 text-accent shrink-0" />
           <input
             ref={inputRef}
             type="text"
@@ -119,7 +119,7 @@ export default function ContactTab() {
           />
           <button 
             type="submit" 
-            className="p-1 text-slate-500 hover:text-blue-400 hover:bg-slate-900 rounded transition-all shrink-0"
+            className="p-1 text-slate-500 hover:text-accent hover:bg-panel rounded transition-all shrink-0"
             title="Submit Command"
           >
             <Send className="w-3.5 h-3.5" />

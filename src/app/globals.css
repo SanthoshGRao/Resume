@@ -3,19 +3,34 @@
 @tailwind utilities;
 
 :root {
-  --background: #0b0f19;
-  --foreground: #f8fafc;
-  --panel: #151c2c;
-  --border: #242f47;
-  --accent: #60a5fa;
-  --text-muted: #8295b4;
+  --background: #09090b;      /* Zinc 950 (Vercel pitch-black dark mode) */
+  --foreground: #fafafa;      /* Zinc 50 (Crisp off-white) */
+  --panel: #121214;           /* Zinc 900 (Sleek dark card panel) */
+  --border: #1f1f23;          /* Minimalist dark border */
+  --accent: #6366f1;          /* Refined Indigo accent */
+  --text-muted: #a1a1aa;      /* Zinc 400 (Silver text) */
 }
 
 body {
   color: var(--foreground);
   background-color: var(--background);
   font-family: 'Inter', system-ui, -apple-system, sans-serif;
-  overflow: hidden; /* Prevent body overflow so the OS dashboard handles layouts */
+  overflow: hidden;
+  position: relative;
+}
+
+/* Premium Vercel-style radial aura background glow */
+body::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 600px;
+  height: 350px;
+  background: radial-gradient(circle, rgba(99, 102, 241, 0.05) 0%, rgba(99, 102, 241, 0) 70%);
+  z-index: -1;
+  pointer-events: none;
 }
 
 /* Custom Operating System Scrollbars */
@@ -25,23 +40,23 @@ body {
 }
 
 ::-webkit-scrollbar-track {
-  background: rgba(11, 15, 25, 0.5);
+  background: rgba(9, 9, 11, 0.5);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #242f47;
+  background: #1f1f23;
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #3b82f6;
+  background: #6366f1;
 }
 
 /* Glassmorphism helpers */
 .glass-panel {
-  background: rgba(21, 28, 44, 0.4);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
+  background: rgba(18, 18, 20, 0.4);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
   border: 1px solid var(--border);
 }
 

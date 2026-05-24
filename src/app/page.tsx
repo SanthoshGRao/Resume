@@ -49,10 +49,10 @@ export default function Home() {
   // Render Loader
   if (!isBooted) {
     return (
-      <div className="w-screen h-screen flex flex-col items-center justify-center bg-[#0b0f19] font-mono text-[11px] p-6 text-slate-400 select-none">
+      <div className="w-screen h-screen flex flex-col items-center justify-center bg-[#09090b] font-mono text-[11px] p-6 text-slate-400 select-none">
         <div className="w-full max-w-md flex flex-col gap-2">
           {bootLines.slice(0, bootStep).map((line, idx) => (
-            <div key={idx} className={idx === bootLines.length - 1 ? "text-blue-400 font-bold" : ""}>
+            <div key={idx} className={idx === bootLines.length - 1 ? "text-accent font-bold" : ""}>
               <span className="text-slate-600 mr-2">&gt;</span>
               {line}
             </div>
@@ -60,7 +60,7 @@ export default function Home() {
           {bootStep < bootLines.length && (
             <div className="flex items-center">
               <span className="text-slate-600 mr-2">&gt;</span>
-              <span className="w-1.5 h-3 bg-blue-500 cursor-blink"></span>
+              <span className="w-1.5 h-3 bg-accent cursor-blink"></span>
             </div>
           )}
         </div>
@@ -70,12 +70,12 @@ export default function Home() {
 
   // Render Dashboard
   return (
-    <div className="w-screen h-screen flex flex-col bg-[#0b0f19] text-[#f8fafc] overflow-hidden select-text">
+    <div className="w-screen h-screen flex flex-col bg-background text-[#f8fafc] overflow-hidden select-text">
       {/* Top OS Header Bar */}
-      <header className="h-9 border-b border-slate-800 bg-slate-950 flex items-center justify-between px-6 select-none shrink-0">
+      <header className="h-9 border-b border-border bg-[#0a0a0c]/85 flex items-center justify-between px-6 select-none shrink-0">
         <div className="flex items-center gap-4 text-[10px] font-mono font-semibold text-slate-500">
-          <div className="flex items-center gap-1.5 text-blue-400">
-            <Play className="w-3 h-3 fill-current text-blue-400" />
+          <div className="flex items-center gap-1.5 text-accent">
+            <Play className="w-3 h-3 fill-current text-accent" />
             <span>MISSION-CONTROL.SYS</span>
           </div>
           <span>v1.2.0</span>
@@ -91,9 +91,9 @@ export default function Home() {
         <LeftSidebar activeTab={activeTab} setActiveTab={setActiveTab} />
 
         {/* Center Workspace Panel */}
-        <main className="flex-1 bg-slate-950/20 flex flex-col overflow-hidden">
+        <main className="flex-1 bg-slate-950/10 flex flex-col overflow-hidden">
           {/* Active node workspace identifier */}
-          <div className="h-10 border-b border-slate-900 bg-slate-950/40 px-8 flex items-center justify-between select-none shrink-0">
+          <div className="h-10 border-b border-border/80 bg-panel/10 px-8 flex items-center justify-between select-none shrink-0">
             <span className="text-[9px] font-mono font-bold tracking-widest text-slate-500 uppercase">
               ACTIVE DESKTOP NODE &gt; {activeTab}.log
             </span>

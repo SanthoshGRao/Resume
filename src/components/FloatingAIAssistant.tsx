@@ -67,7 +67,7 @@ export default function FloatingAIAssistant() {
       {/* Chat button */}
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="w-12 h-12 bg-blue-600 hover:bg-blue-500 rounded-full flex items-center justify-center text-slate-100 shadow-[0_4px_20px_rgba(59,130,246,0.3)] hover:scale-105 transition-all border border-blue-500/20"
+        className="w-12 h-12 bg-accent hover:bg-accent/80 rounded-full flex items-center justify-center text-slate-100 shadow-[0_4px_20px_rgba(99,102,241,0.2)] hover:scale-105 transition-all border border-accent/20"
         title="AI Assistant proxy"
       >
         {isOpen ? <X className="w-5 h-5" /> : <MessageSquare className="w-5 h-5" />}
@@ -75,10 +75,10 @@ export default function FloatingAIAssistant() {
 
       {/* Chat window */}
       {isOpen && (
-        <div className="absolute bottom-16 right-0 w-80 sm:w-96 h-[460px] bg-slate-950 border border-slate-800 rounded-2xl shadow-[0_10px_30px_rgba(0,0,0,0.5)] flex flex-col overflow-hidden glass-panel">
+        <div className="absolute bottom-16 right-0 w-80 sm:w-96 h-[460px] bg-[#0a0a0c]/95 border border-border rounded-2xl shadow-[0_10px_30px_rgba(0,0,0,0.5)] flex flex-col overflow-hidden glass-panel">
           {/* Header */}
-          <div className="bg-slate-900 border-b border-slate-800/60 px-4 py-3.5 flex items-center gap-2.5">
-            <div className="p-1 rounded bg-blue-500/10 border border-blue-500/20 text-blue-400">
+          <div className="bg-panel border-b border-border/60 px-4 py-3.5 flex items-center gap-2.5">
+            <div className="p-1 rounded bg-accent/10 border border-accent/20 text-accent">
               <Bot className="w-4 h-4" />
             </div>
             <div>
@@ -97,8 +97,8 @@ export default function FloatingAIAssistant() {
                 <div 
                   className={`max-w-[85%] rounded-xl px-3 py-2 text-xs leading-relaxed whitespace-pre-wrap ${
                     msg.sender === "user" 
-                      ? "bg-blue-600 text-slate-100 font-medium" 
-                      : "bg-slate-900 border border-slate-800 text-slate-300 font-mono"
+                      ? "bg-accent text-slate-100 font-medium animate-fade-in" 
+                      : "bg-panel border border-border text-slate-300 font-mono"
                   }`}
                 >
                   {msg.text}
@@ -109,12 +109,12 @@ export default function FloatingAIAssistant() {
           </div>
 
           {/* Quick suggestions chips */}
-          <div className="px-4 py-2 border-t border-slate-900 bg-slate-900/10 flex gap-1.5 overflow-x-auto whitespace-nowrap scrollbar-none select-none">
+          <div className="px-4 py-2 border-t border-border bg-panel/10 flex gap-1.5 overflow-x-auto whitespace-nowrap scrollbar-none select-none">
             {suggestions.map((sug, i) => (
               <button
                 key={i}
                 onClick={() => handleQuery(sug)}
-                className="text-[9px] font-mono border border-slate-800 bg-slate-950 text-slate-400 px-2 py-1.5 rounded-full hover:border-blue-500/40 hover:text-blue-400 transition-all shrink-0"
+                className="text-[9px] font-mono border border-border bg-panel/30 text-slate-400 px-2 py-1.5 rounded-full hover:border-accent/40 hover:text-accent transition-all shrink-0"
               >
                 {sug}
               </button>
@@ -122,17 +122,17 @@ export default function FloatingAIAssistant() {
           </div>
 
           {/* Chat input */}
-          <form onSubmit={handleFormSubmit} className="p-3 border-t border-slate-900 bg-slate-950 flex items-center gap-2">
+          <form onSubmit={handleFormSubmit} className="p-3 border-t border-border bg-[#0a0a0c]/60 flex items-center gap-2">
             <input
               type="text"
               value={inputVal}
               onChange={(e) => setInputVal(e.target.value)}
               placeholder="Ask me a question..."
-              className="bg-slate-900 border border-slate-800 rounded-lg px-3 py-2 text-xs flex-1 outline-none text-slate-100 focus:border-blue-500/40 transition-all font-mono"
+              className="bg-panel border border-border rounded-lg px-3 py-2 text-xs flex-1 outline-none text-slate-100 focus:border-accent/40 transition-all font-mono"
             />
             <button
               type="submit"
-              className="p-2 bg-blue-600 hover:bg-blue-500 text-slate-100 rounded-lg transition-all shrink-0 border border-blue-500/20"
+              className="p-2 bg-accent hover:bg-accent/80 text-slate-100 rounded-lg transition-all shrink-0 border border-accent/20"
             >
               <Send className="w-3.5 h-3.5" />
             </button>

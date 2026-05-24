@@ -49,8 +49,8 @@ export default function ProjectsTab() {
               onClick={() => setSelectedSystem(system)}
               className={`border p-4 rounded-xl cursor-pointer text-left transition-all duration-200 select-none ${
                 isSelected
-                  ? "bg-slate-900 border-blue-500/40 shadow-[0_0_15px_rgba(59,130,246,0.05)]"
-                  : "bg-slate-950 border-slate-800 hover:border-slate-700 hover:bg-slate-900/10"
+                  ? "bg-panel border-accent/40 shadow-[0_0_15px_rgba(99,102,241,0.05)]"
+                  : "bg-panel/20 border-border hover:border-border-hover hover:bg-panel/10"
               }`}
             >
               <div className="flex items-start justify-between gap-3">
@@ -69,7 +69,7 @@ export default function ProjectsTab() {
               </h3>
               <div className="flex flex-wrap gap-1.5 mt-3">
                 {system.technologies.slice(0, 3).map((tech, i) => (
-                  <span key={i} className="text-[8.5px] font-mono bg-slate-900 border border-slate-800 text-slate-400 px-1.5 py-0.5 rounded">
+                  <span key={i} className="text-[8.5px] font-mono bg-panel border border-border text-slate-400 px-1.5 py-0.5 rounded">
                     {tech}
                   </span>
                 ))}
@@ -85,7 +85,7 @@ export default function ProjectsTab() {
       </div>
 
       {/* Selected System Operations Board (Right 3 columns) */}
-      <div className="md:col-span-3 flex flex-col gap-4 border border-slate-800 bg-slate-900/15 rounded-xl p-5 overflow-y-auto">
+      <div className="md:col-span-3 flex flex-col gap-4 border border-border bg-panel/10 rounded-xl p-5 overflow-y-auto">
         <AnimatePresence mode="wait">
           <motion.div
             key={selectedSystem.id}
@@ -96,8 +96,8 @@ export default function ProjectsTab() {
             className="flex flex-col gap-5"
           >
             {/* System Status Headers */}
-            <div className="flex flex-col gap-1 pb-4 border-b border-slate-900">
-              <div className="flex items-center gap-2 text-blue-400 font-mono text-[10px]">
+            <div className="flex flex-col gap-1 pb-4 border-b border-border">
+              <div className="flex items-center gap-2 text-accent font-mono text-[10px]">
                 <Activity className="w-3.5 h-3.5 animate-pulse" />
                 <span>{selectedSystem.id} // ACTIVE OPERATIONAL NODE</span>
               </div>
@@ -108,7 +108,7 @@ export default function ProjectsTab() {
 
             {/* Core Metrics grid */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              <div className="flex flex-col gap-1 bg-slate-950/60 border border-slate-900 p-3.5 rounded-lg">
+              <div className="flex flex-col gap-1 bg-panel/40 border border-border p-3.5 rounded-lg">
                 <div className="flex items-center gap-1.5 text-slate-500">
                   <HelpCircle className="w-3.5 h-3.5" />
                   <span className="text-[9px] font-mono font-bold tracking-wider uppercase">CORE PROBLEM</span>
@@ -118,7 +118,7 @@ export default function ProjectsTab() {
                 </p>
               </div>
 
-              <div className="flex flex-col gap-1 bg-slate-950/60 border border-slate-900 p-3.5 rounded-lg">
+              <div className="flex flex-col gap-1 bg-panel/40 border border-border p-3.5 rounded-lg">
                 <div className="flex items-center gap-1.5 text-slate-500">
                   <CheckCircle className="w-3.5 h-3.5" />
                   <span className="text-[9px] font-mono font-bold tracking-wider uppercase">DEPLOYED SOLUTION</span>
@@ -139,7 +139,7 @@ export default function ProjectsTab() {
                 {selectedSystem.modules.map((mod, i) => (
                   <span 
                     key={i} 
-                    className="text-[9.5px] font-mono font-medium border border-blue-900/30 bg-blue-950/15 text-blue-400 px-2.5 py-1 rounded-md"
+                    className="text-[9.5px] font-mono font-medium border border-accent/20 bg-accent/5 text-accent px-2.5 py-1 rounded-md"
                   >
                     {mod}
                   </span>
@@ -148,7 +148,7 @@ export default function ProjectsTab() {
             </div>
 
             {/* Core Impact */}
-            <div className="flex flex-col gap-1 bg-slate-950/40 border border-slate-900 p-3.5 rounded-lg">
+            <div className="flex flex-col gap-1 bg-panel/40 border border-border p-3.5 rounded-lg">
               <div className="flex items-center gap-1.5 text-slate-500">
                 <Sparkles className="w-3.5 h-3.5 text-amber-500" />
                 <span className="text-[9px] font-mono font-bold tracking-wider uppercase">SYSTEM PERFORMANCE IMPACT</span>
@@ -170,11 +170,11 @@ export default function ProjectsTab() {
             )}
 
             {/* Technologies pills */}
-            <div className="flex items-center gap-2 border-t border-slate-900 pt-4 text-[10px] text-slate-500">
+            <div className="flex items-center gap-2 border-t border-border pt-4 text-[10px] text-slate-500">
               <span className="font-mono">COMPILED INTEGRATIONS:</span>
               <div className="flex flex-wrap gap-1.5">
                 {selectedSystem.technologies.map((tech, i) => (
-                  <span key={i} className="bg-slate-950 border border-slate-800 text-slate-400 font-mono text-[9px] px-2 py-0.5 rounded">
+                  <span key={i} className="bg-panel border border-border text-slate-400 font-mono text-[9px] px-2 py-0.5 rounded">
                     {tech}
                   </span>
                 ))}

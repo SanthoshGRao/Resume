@@ -24,7 +24,7 @@ export default function CertificationsTab() {
       variants={containerVariants}
       className="max-w-3xl mx-auto flex flex-col gap-6 py-2"
     >
-      <div className="flex items-center justify-between border-b border-slate-900 pb-3">
+      <div className="flex items-center justify-between border-b border-border pb-3">
         <h2 className="text-xs font-mono font-bold tracking-widest text-slate-400 uppercase">
           CERTIFICATION REPOSITORY
         </h2>
@@ -38,9 +38,9 @@ export default function CertificationsTab() {
           <motion.div
             variants={itemVariants}
             key={i}
-            className="border border-slate-800 bg-slate-900/10 p-5 rounded-xl flex items-start gap-4 hover:border-slate-700 transition-all duration-200"
+            className="border border-border bg-panel/20 p-5 rounded-xl flex items-start gap-4 hover:border-border-hover transition-all duration-200"
           >
-            <div className="p-2.5 rounded-lg border border-slate-800 bg-slate-950 text-blue-400">
+            <div className="p-2.5 rounded-lg border border-border bg-panel text-accent">
               <Award className="w-5 h-5" />
             </div>
             <div className="flex-1 min-w-0">
