@@ -246,3 +246,13 @@ export const certifications: Certification[] = [
   { name: "2D Game Development", issuer: "Udemy", year: "2023" },
   { name: "Data Analytics and Visualization", issuer: "Swayam / NPTEL", year: "2023" },
 ];
+
+export const profileData = {
+  name: "Santhosh G Rao",
+  title: "Software Developer",
+  role: "Full Stack Engineer & Generative AI Builder",
+  location: "Mysuru, Karnataka, India",
+  email: "santhoshgrao13@gmail.com",
+  github: "https://github.com/SanthoshGRao",
+  linkedin: "https://linkedin.com/in/santhosh-g-rao",
+};

@@ -1,6 +1,6 @@
 import React from "react";
 import { Mail, Linkedin, Github, FileText, ArrowUp } from "lucide-react";
-import { profileData } from "@/data/dashboardData";
+import { profileData } from "@/data/journeyData";
 
 interface ContactSectionProps {
   scrollToSection: (id: string) => void;
