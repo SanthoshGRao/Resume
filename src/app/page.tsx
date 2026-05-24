@@ -1,133 +1,70 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { Play } from "lucide-react";
+import React, { useState } from "react";
+import { motion } from "framer-motion";
 
-// Sidebar & Tab Components
-import LeftSidebar from "@/components/LeftSidebar";
-import RightSidebar from "@/components/RightSidebar";
-import OverviewTab from "@/components/OverviewTab";
-import ProjectsTab from "@/components/ProjectsTab";
-import SkillsTab from "@/components/SkillsTab";
-import ExperienceTab from "@/components/ExperienceTab";
-import CertificationsTab from "@/components/CertificationsTab";
-import ResumeTab from "@/components/ResumeTab";
-import ContactTab from "@/components/ContactTab";
-import FloatingAIAssistant from "@/components/FloatingAIAssistant";
+// Section Components
+import HeroSection from "@/components/HeroSection";
+import GrowthJourney from "@/components/GrowthJourney";
+import MissionRegistry from "@/components/MissionRegistry";
+import ToolkitEcosystem from "@/components/ToolkitEcosystem";
+import ExperienceTimeline from "@/components/ExperienceTimeline";
+import DesignGallery from "@/components/DesignGallery";
+import CertificationsGrid from "@/components/CertificationsGrid";
+import ContactSection from "@/components/ContactSection";
 
 export default function Home() {
-  const [bootStep, setBootStep] = useState(0);
-  const [isBooted, setIsBooted] = useState(false);
-  const [activeTab, setActiveTab] = useState("overview");
+  const [selectedDesignId, setSelectedDesignId] = useState<string>("SYS-01");
 
-  const bootLines = [
-    "Initializing Mission Control...",
-    "Loading Developer Profile...",
-    "Loading AI Systems...",
-    "Loading Experience Database...",
-    "Loading Project Registry...",
-    "System Ready"
-  ];
-
-  // System boot typewriter sequence
-  useEffect(() => {
-    if (bootStep < bootLines.length) {
-      const delay = bootStep === bootLines.length - 1 ? 700 : 350;
-      const timer = setTimeout(() => {
-        setBootStep((prev) => prev + 1);
-      }, delay);
-      return () => clearTimeout(timer);
-    } else {
-      const timer = setTimeout(() => {
-        setIsBooted(true);
-      }, 500);
-      return () => clearTimeout(timer);
+  // Smooth scroll handler
+  const scrollToSection = (id: string) => {
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
     }
-  }, [bootStep]);
+  };
 
-  // Render Loader
-  if (!isBooted) {
-    return (
-      <div className="w-screen h-screen flex flex-col items-center justify-center bg-[#09090b] font-mono text-[11px] p-6 text-slate-400 select-none">
-        <div className="w-full max-w-md flex flex-col gap-2">
-          {bootLines.slice(0, bootStep).map((line, idx) => (
-            <div key={idx} className={idx === bootLines.length - 1 ? "text-accent font-bold" : ""}>
-              <span className="text-slate-600 mr-2">&gt;</span>
-              {line}
-            </div>
-          ))}
-          {bootStep < bootLines.length && (
-            <div className="flex items-center">
-              <span className="text-slate-600 mr-2">&gt;</span>
-              <span className="w-1.5 h-3 bg-accent cursor-blink"></span>
-            </div>
-          )}
-        </div>
-      </div>
-    );
-  }
-
-  // Render Dashboard
   return (
-    <div className="w-screen h-screen flex flex-col bg-background text-[#f8fafc] overflow-hidden select-text">
-      {/* Top OS Header Bar */}
-      <header className="h-9 border-b border-border bg-[#0a0a0c]/85 flex items-center justify-between px-6 select-none shrink-0">
-        <div className="flex items-center gap-4 text-[10px] font-mono font-semibold text-slate-500">
-          <div className="flex items-center gap-1.5 text-accent">
-            <Play className="w-3 h-3 fill-current text-accent" />
-            <span>MISSION-CONTROL.SYS</span>
-          </div>
-          <span>v1.2.0</span>
+    <div className="min-h-screen bg-[#0b0f19] text-[#f8fafc] flex flex-col selection:bg-blue-600/30 selection:text-blue-200">
+      {/* Visual background lines (Minimal Stripe/Linear Grid vibe) */}
+      <div className="fixed inset-0 bg-[radial-gradient(ellipse_at_top,rgba(30,41,59,0.15),transparent_60%)] pointer-events-none z-0"></div>
+
+      {/* Main Single Page Scroll Canvas */}
+      <main className="flex-1 relative z-10">
+        
+        {/* Section 1: Hero Landing */}
+        <div id="hero">
+          <HeroSection scrollToSection={scrollToSection} />
         </div>
-        <div className="text-[10px] font-mono text-slate-500">
-          NODE: Mysuru, IN // LOCAL
-        </div>
-      </header>
 
-      {/* Main OS Window Pane */}
-      <div className="flex-1 flex overflow-hidden">
-        {/* Left Nav Menu */}
-        <LeftSidebar activeTab={activeTab} setActiveTab={setActiveTab} />
+        {/* Section 2: Developer Growth Evolution */}
+        <GrowthJourney />
 
-        {/* Center Workspace Panel */}
-        <main className="flex-1 bg-slate-950/10 flex flex-col overflow-hidden">
-          {/* Active node workspace identifier */}
-          <div className="h-10 border-b border-border/80 bg-panel/10 px-8 flex items-center justify-between select-none shrink-0">
-            <span className="text-[9px] font-mono font-bold tracking-widest text-slate-500 uppercase">
-              ACTIVE DESKTOP NODE &gt; {activeTab}.log
-            </span>
-          </div>
+        {/* Section 3: Engineering Missions Case Studies */}
+        <MissionRegistry 
+          scrollToSection={scrollToSection} 
+          setSelectedDesignId={setSelectedDesignId} 
+        />
 
-          {/* Dynamic Inner Panel Viewport */}
-          <div className="flex-1 overflow-y-auto px-8 py-6">
-            <AnimatePresence mode="wait">
-              <motion.div
-                key={activeTab}
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -10 }}
-                transition={{ duration: 0.22, ease: "easeInOut" }}
-                className="h-full"
-              >
-                {activeTab === "overview" && <OverviewTab />}
-                {activeTab === "projects" && <ProjectsTab />}
-                {activeTab === "experience" && <ExperienceTab />}
-                {activeTab === "skills" && <SkillsTab />}
-                {activeTab === "certifications" && <CertificationsTab />}
-                {activeTab === "resume" && <ResumeTab />}
-                {activeTab === "contact" && <ContactTab />}
-              </motion.div>
-            </AnimatePresence>
-          </div>
-        </main>
+        {/* Section 4: Skills Toolkit Ecosystem */}
+        <ToolkitEcosystem />
 
-        {/* Right Telemetry Column */}
-        <RightSidebar />
-      </div>
+        {/* Section 5: Internship Experience Timeline */}
+        <ExperienceTimeline />
 
-      {/* Local AI Assistant overlay chatbot */}
-      <FloatingAIAssistant />
+        {/* Section 6: Architecture Design Gallery */}
+        <DesignGallery 
+          selectedDesignId={selectedDesignId} 
+          setSelectedDesignId={setSelectedDesignId} 
+        />
+
+        {/* Section 7: Verified Certifications */}
+        <CertificationsGrid />
+
+        {/* Section 8: Minimal Contact Section */}
+        <ContactSection scrollToSection={scrollToSection} />
+
+      </main>
     </div>
   );
 }
