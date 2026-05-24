@@ -1,0 +1,702 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Santhosh G Rao - Software Developer Resume</title>
+    <style>
+        /* Professional Fonts */
+        @import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500&family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800;900&display=swap');
+
+        :root {
+            --primary: #0f172a;
+            /* Deep Navy/Slate */
+            --accent: #3a608c;
+            /* Indigo Accent */
+            --text-dark: #1e293b;
+            /* Slate Charcoal */
+            --text-muted: #64748b;
+            /* Slate Muted */
+            --border-light: #e2e8f0;
+            /* Divider Line Gray */
+            --bg-page: #f1f5f9;
+            /* Canvas Background */
+            --bg-card: #ffffff;
+            /* White Paper Background */
+            --timeline-line: #cbd5e1;
+            /* Slate Timeline Trace */
+            --pills-bg: #f8fafc;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', system-ui, sans-serif;
+            font-size: 10pt;
+            line-height: 1.42;
+            color: var(--text-dark);
+            background-color: var(--bg-page);
+            padding: 40px 20px;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Paper Sheet Layout */
+        .resume-sheet {
+            max-width: 8.5in;
+            width: 100%;
+            background-color: var(--bg-card);
+            box-shadow: 0 10px 30px rgba(15, 23, 42, 0.06), 0 0 1px rgba(15, 23, 42, 0.1);
+            padding: 0.55in 0.6in;
+            border-radius: 8px;
+            border: 1px solid var(--border-light);
+        }
+
+        /* ==================== HEADER ==================== */
+        .header-section {
+            border-left: 4px solid var(--accent);
+            padding-left: 20px;
+            margin-bottom: 14px;
+        }
+
+        .header-section h1 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 24pt;
+            font-weight: 800;
+            color: var(--primary);
+            letter-spacing: -0.5px;
+            line-height: 1.1;
+            margin-bottom: 4px;
+        }
+
+        .header-subtitle {
+            font-family: 'Fira Code', monospace;
+            font-size: 8.5pt;
+            font-weight: 600;
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-bottom: 12px;
+        }
+
+        /* Contact Details Grid */
+        .contacts-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px 20px;
+            font-size: 8.5pt;
+            color: var(--text-muted);
+        }
+
+        .contact-pill {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            color: var(--text-muted);
+            text-decoration: none;
+        }
+
+        .contact-pill a {
+            color: var(--text-muted);
+            text-decoration: none;
+        }
+
+        .contact-pill a:hover {
+            color: var(--accent);
+        }
+
+        .contact-icon {
+            width: 13px;
+            height: 13px;
+            stroke: var(--accent);
+            stroke-width: 2;
+            fill: none;
+        }
+
+        /* ==================== SECTION TITLE ==================== */
+        .section-header {
+            font-family: 'Outfit', sans-serif;
+            font-size: 11.5pt;
+            font-weight: 700;
+            color: var(--primary);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 15px;
+            margin-bottom: 8px;
+            padding-bottom: 5px;
+            position: relative;
+        }
+
+        /* Two-tone accent border under titles */
+        .section-header::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            background-color: var(--border-light);
+        }
+
+        .section-header::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 45px;
+            height: 2.5px;
+            background-color: var(--accent);
+            z-index: 1;
+        }
+
+        /* Professional Summary */
+        .summary-text {
+            font-size: 9.5pt;
+            color: var(--text-dark);
+            text-align: justify;
+            line-height: 1.42;
+        }
+
+        /* ==================== SKILLS GRID ==================== */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 8px 24px;
+        }
+
+        .skill-item {
+            font-size: 9.5pt;
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+
+        .skill-item-category {
+            font-family: 'Outfit', sans-serif;
+            font-size: 9pt;
+            font-weight: 700;
+            color: var(--primary);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .skill-item-values {
+            color: var(--text-muted);
+            font-size: 9pt;
+        }
+
+        /* ==================== TIMELINE / DETAILS ==================== */
+        .timeline {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            position: relative;
+        }
+
+        /* The vertical line tracking through the experience and projects */
+        .timeline::before {
+            content: '';
+            position: absolute;
+            top: 6px;
+            bottom: 6px;
+            left: 5px;
+            width: 1.5px;
+            background-color: var(--timeline-line);
+        }
+
+        .timeline-block {
+            position: relative;
+            padding-left: 22px;
+            page-break-inside: avoid;
+            break-inside: avoid;
+        }
+
+        /* Timeline Dot */
+        .timeline-block::before {
+            content: '';
+            position: absolute;
+            left: 1px;
+            top: 5px;
+            width: 9px;
+            height: 9px;
+            border-radius: 50%;
+            background-color: var(--accent);
+            border: 2px solid var(--bg-card);
+            z-index: 2;
+        }
+
+        .timeline-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 2px;
+        }
+
+        .timeline-title {
+            font-family: 'Outfit', sans-serif;
+            font-size: 11pt;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .timeline-subtitle {
+            font-size: 9.5pt;
+            font-weight: 600;
+            color: var(--accent);
+            margin-bottom: 6px;
+        }
+
+        .timeline-date {
+            font-family: 'Fira Code', monospace;
+            font-size: 8pt;
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+
+        /* Technology Pills List */
+        .tech-pills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 5px;
+            margin-top: -2px;
+            margin-bottom: 8px;
+        }
+
+        .tech-pill {
+            font-family: 'Fira Code', monospace;
+            font-size: 7.5pt;
+            background-color: var(--pills-bg);
+            border: 1px solid var(--border-light);
+            color: var(--text-muted);
+            padding: 1px 6px;
+            border-radius: 4px;
+            font-weight: 500;
+        }
+
+        /* Clean Bullet Lists */
+        ul.bullet-list {
+            list-style: none;
+        }
+
+        ul.bullet-list li {
+            font-size: 9.5pt;
+            color: var(--text-dark);
+            margin-bottom: 3px;
+            position: relative;
+            padding-left: 12px;
+            line-height: 1.4;
+            text-align: justify;
+        }
+
+        ul.bullet-list li::before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+            font-weight: bold;
+        }
+
+        /* ==================== EDUCATION ==================== */
+        .edu-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 14px;
+        }
+
+        .edu-card {
+            border-left: 2px solid var(--accent);
+            padding-left: 12px;
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+            page-break-inside: avoid;
+            break-inside: avoid;
+        }
+
+        .edu-degree {
+            font-family: 'Outfit', sans-serif;
+            font-size: 9.5pt;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .edu-school {
+            font-size: 9pt;
+            color: var(--text-muted);
+        }
+
+        .edu-gpa {
+            font-size: 8.5pt;
+            color: var(--text-dark);
+            font-weight: 600;
+        }
+
+        .edu-coursework {
+            font-size: 8pt;
+            color: var(--text-muted);
+            line-height: 1.4;
+            margin-top: 4px;
+            border-top: 1px dashed var(--border-light);
+            padding-top: 4px;
+        }
+
+        /* ==================== CERTIFICATIONS & LANGUAGES ==================== */
+        .certs-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 6px 20px;
+        }
+
+        .certs-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        .cert-row {
+            font-size: 9pt;
+            color: var(--text-dark);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .cert-row::before {
+            content: "▪";
+            color: var(--accent);
+            font-size: 6pt;
+            flex-shrink: 0;
+        }
+
+        .langs-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .lang-badge {
+            font-size: 8.5pt;
+            background-color: var(--pills-bg);
+            border: 1px solid var(--border-light);
+            padding: 3px 10px;
+            border-radius: 4px;
+            font-weight: 500;
+            color: var(--text-dark);
+        }
+
+        /* Print Override */
+        @media print {
+            :root, [data-theme="emerald"], [data-theme="navy"], [data-theme="minimalist"], [data-theme="cyber"] {
+                --primary: #1e293b !important;
+                --primary-light: #475569 !important;
+                --accent: #0f766e !important;
+                --text-dark: #0f172a !important;
+                --text-muted: #475569 !important;
+                --bg-light: #ffffff !important;
+                --border-color: #cbd5e1 !important;
+                --header-bg: #ffffff !important;
+                --page-bg: #ffffff !important;
+                --resume-bg: #ffffff !important;
+                --glow-shadow: none !important;
+            }
+
+            body {
+                background: white !important;
+                color: #0f172a !important;
+                padding: 0 !important;
+            }
+
+            .resume-sheet {
+                box-shadow: none !important;
+                border: none !important;
+                border-radius: 0 !important;
+                padding: 0.18in 0.3in !important;
+                max-width: 100% !important;
+                width: 100% !important;
+            }
+
+            .section-header {
+                margin-top: 10px !important;
+                margin-bottom: 6px !important;
+            }
+
+            .timeline {
+                gap: 6px !important;
+            }
+
+            .skills-grid {
+                gap: 6px 24px !important;
+            }
+
+            ul.bullet-list li {
+                margin-bottom: 2px !important;
+                line-height: 1.34 !important;
+            }
+
+            .summary-text {
+                line-height: 1.34 !important;
+            }
+        }
+
+        @page {
+            margin: 0.2in;
+            size: A4;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="resume-sheet">
+
+        <!-- HEADER SECTION -->
+        <div class="header-section">
+            <h1>SANTHOSH G RAO</h1>
+            <div class="header-subtitle">Software Developer</div>
+
+            <div class="contacts-grid">
+                <!-- Phone -->
+                <div class="contact-pill">
+                    <svg class="contact-icon" viewBox="0 0 24 24">
+                        <path
+                            d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+                    </svg>
+                    <span>+91-7795276405</span>
+                </div>
+                <!-- Email -->
+                <div class="contact-pill">
+                    <svg class="contact-icon" viewBox="0 0 24 24">
+                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                        <polyline points="22,6 12,13 2,6" />
+                    </svg>
+                    <span><a href="mailto:santhoshgrao13@gmail.com">santhoshgrao13@gmail.com</a></span>
+                </div>
+                <!-- Location -->
+                <div class="contact-pill">
+                    <svg class="contact-icon" viewBox="0 0 24 24">
+                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+                        <circle cx="12" cy="10" r="3" />
+                    </svg>
+                    <span>Mysuru, Karnataka, India</span>
+                </div>
+            </div>
+            <div class="contacts-grid" style="margin-top: 5px;">
+                <!-- LinkedIn -->
+                <div class="contact-pill">
+                    <svg class="contact-icon" viewBox="0 0 24 24">
+                        <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+                        <rect x="2" y="9" width="4" height="12" />
+                        <circle cx="4" cy="4" r="2" />
+                    </svg>
+                    <span><a href="https://linkedin.com/in/santhosh-g-rao"
+                            target="_blank">linkedin.com/in/santhosh-g-rao</a></span>
+                </div>
+            </div>
+        </div>
+
+        <!-- SUMMARY SECTION -->
+        <p class="summary-text">
+            I am a Software Developer and Master of Computer Applications (MCA) candidate with a strong foundation in full-stack web development and a
+            keen interest in Generative AI.
+            With hands-on experience spanning React and TypeScript frontend applications to Python, Java, and SQL databases, I enjoy
+            designing responsive interfaces and building efficient APIs.
+            I am always eager to learn, tackle challenging technical problems, and collaborate to create high-quality,
+            impactful software.
+        </p>
+
+        <!-- TECHNICAL SKILLS SECTION -->
+        <div class="section-header">Technical Skills</div>
+        <div class="skills-grid">
+            <div class="skill-item">
+                <span class="skill-item-category">Programming Languages</span>
+                <span class="skill-item-values">Python, Java, JavaScript, TypeScript, SQL</span>
+            </div>
+            <div class="skill-item">
+                <span class="skill-item-category">Frontend Development</span>
+                <span class="skill-item-values">React, Vite, HTML5, CSS3, Responsive Design</span>
+            </div>
+            <div class="skill-item">
+                <span class="skill-item-category">Backend & Databases</span>
+                <span class="skill-item-values">Node.js, RESTful APIs, Express.js, MySQL, PostgreSQL, MongoDB</span>
+            </div>
+            <div class="skill-item">
+                <span class="skill-item-category">AI & Machine Learning</span>
+                <span class="skill-item-values">Generative AI, LLMs, Computer Vision, OpenCV, Prompt Engineering,
+                    NLP</span>
+            </div>
+            <div class="skill-item">
+                <span class="skill-item-category">Tools & Methodologies</span>
+                <span class="skill-item-values">Unreal Engine, Git, GitHub, Agile/Scrum, Unit Testing, Debugging,
+                    SDLC</span>
+            </div>
+            <div class="skill-item">
+                <span class="skill-item-category">Core Concepts</span>
+                <span class="skill-item-values">Data Structures, Algorithms, Object-Oriented Programming (OOP), Problem
+                    Solving</span>
+            </div>
+        </div>
+
+        <!-- EXPERIENCE SECTION -->
+        <div class="section-header">Professional Experience</div>
+        <div class="timeline">
+            <div class="timeline-block">
+                <div class="timeline-header">
+                    <span class="timeline-title">Part-Time Intern — AI and Software Development</span>
+                    <span class="timeline-date">2025 – Present</span>
+                </div>
+                <div class="timeline-subtitle">Envision Infotech, Mysuru</div>
+                <ul class="bullet-list">
+                    <li>Developed and maintained software applications using Python and modern web technologies,
+                        contributing to client-facing product features in an Agile/Scrum environment.</li>
+                    <li>Collaborated with cross-functional teams to design, implement, and test RESTful APIs, ensuring
+                        seamless integration between frontend and backend services.</li>
+                    <li>Built and integrated Generative AI features leveraging Large Language Models (LLMs) for
+                        intelligent automation, improving workflow efficiency by an estimated 30%.</li>
+                    <li>Participated in code reviews, debugging sessions, and unit testing to ensure code quality and
+                        adherence to software development best practices.</li>
+                    <li>Utilized Git and GitHub for version control, managing feature branches and pull requests across
+                        collaborative development workflows.</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- PROJECTS SECTION -->
+        <div class="section-header">Projects</div>
+        <div class="timeline">
+            <!-- Project 1 -->
+            <div class="timeline-block">
+                <div class="timeline-header">
+                    <span class="timeline-title">Deception-Driven Multimodal AI Scam Detection & Adversarial Engagement
+                        System</span>
+                    <span class="timeline-date">2026</span>
+                </div>
+                <div class="tech-pills">
+                    <span class="tech-pill">Python</span>
+                    <span class="tech-pill">Machine Learning</span>
+                    <span class="tech-pill">NLP</span>
+                    <span class="tech-pill">REST APIs</span>
+                    <span class="tech-pill">TF-IDF</span>
+                    <span class="tech-pill">Pattern Normalization</span>
+                </div>
+                <ul class="bullet-list">
+                    <li>Developed a defensive and offensive AI platform analyzing incoming SMS, email, and API messaging
+                        metadata, achieving a 92% classification accuracy in identifying scam attempts.</li>
+                    <li>Designed natural language processing pipelines using TF-IDF feature extraction, tokenization,
+                        stop-word removal, and URL pattern normalization.</li>
+                    <li>Engineered an automated deception-driven response engine that engages detected scammers in
+                        randomized, AI-generated dialogue to waste adversarial resources and analyze behavioral patterns.
+                    </li>
+                </ul>
+            </div>
+            <!-- Project 2 -->
+            <div class="timeline-block">
+                <div class="timeline-header">
+                    <span class="timeline-title">AI-Enhanced Driver Training Simulator</span>
+                    <span class="timeline-date">2025</span>
+                </div>
+                <div class="tech-pills">
+                    <span class="tech-pill">Unreal Engine</span>
+                    <span class="tech-pill">Python</span>
+                    <span class="tech-pill">Computer Vision</span>
+                    <span class="tech-pill">OpenCV</span>
+                    <span class="tech-pill">Machine Learning</span>
+                    <span class="tech-pill">Real-Time Analytics</span>
+                </div>
+                <ul class="bullet-list">
+                    <li>Developed a realistic, game-like simulation interface in Unreal Engine integrated with Python
+                        backend services to train and evaluate driver behaviors in virtual environments.</li>
+                    <li>Implemented computer vision pipelines using OpenCV and machine learning algorithms to track
+                        driver eye gaze, posture, and facial expressions in real-time, achieving 90%+ classification
+                        accuracy.</li>
+                    <li>Engineered real-time telemetry and data analytics to assess driver performance, generating live
+                        visual scorecards for key safety metrics.</li>
+                </ul>
+            </div>
+            <!-- Project 3 -->
+            <div class="timeline-block">
+                <div class="timeline-header">
+                    <span class="timeline-title">Smart Gaming Using IoT and Affective Computing</span>
+                    <span class="timeline-date">2024</span>
+                </div>
+                <div class="tech-pills">
+                    <span class="tech-pill">Python</span>
+                    <span class="tech-pill">IoT Sensors</span>
+                    <span class="tech-pill">Affective Computing</span>
+                    <span class="tech-pill">Machine Learning</span>
+                    <span class="tech-pill">Real-Time Processing</span>
+                </div>
+                <ul class="bullet-list">
+                    <li>Built a smart gaming system integrating IoT devices and affective computing algorithms to
+                        dynamically adapt gameplay based on real-time user emotion detection.</li>
+                    <li>Designed and implemented data processing pipelines to handle sensor data streams, improving user
+                        engagement by 25% through adaptive game difficulty.</li>
+                    <li>Applied machine learning techniques for emotion classification using sensor input data.</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- EDUCATION SECTION -->
+        <div class="section-header">Education</div>
+        <div class="edu-grid">
+            <div class="edu-card">
+                <span class="timeline-date">2024 – 2026</span>
+                <div class="edu-degree">Master of Computer Applications</div>
+                <div class="edu-school">JSS Science and Technology University</div>
+                <div class="edu-gpa">CGPA: 8.2 (Till 2nd Sem)</div>
+                <div class="edu-coursework">
+                    <strong>Relevant Coursework:</strong> Data Structures, Algorithms, DBMS, Software Engineering,
+                    Operating Systems
+                </div>
+            </div>
+            <div class="edu-card">
+                <span class="timeline-date">2021 – 2024</span>
+                <div class="edu-degree">Bachelor of Computer Applications</div>
+                <div class="edu-school">Amrita Vishwa Vidyapeetham</div>
+                <div class="edu-gpa">CGPA: 7.98</div>
+                <div class="edu-coursework">
+                    <strong>Relevant Coursework:</strong> OOP (Object-Oriented Programming), Database Management Systems, Web Development
+                </div>
+            </div>
+            <div class="edu-card">
+                <span class="timeline-date">2019 – 2021</span>
+                <div class="edu-degree">Pre-University Course (PCMC)</div>
+                <div class="edu-school">Jnanodaya PU College</div>
+                <div class="edu-gpa">Score: 86.1%</div>
+            </div>
+        </div>
+
+        <!-- CERTIFICATIONS SECTION -->
+        <div class="section-header">Certifications</div>
+        <div class="certs-grid">
+            <ul class="certs-list">
+                <li class="cert-row">Google Data Analytics Certificate (Coursera)</li>
+                <li class="cert-row">Salesforce Development (ExcelR)</li>
+                <li class="cert-row">Android Application Development (Udemy)</li>
+            </ul>
+            <ul class="certs-list">
+                <li class="cert-row">2D Game Development (Udemy)</li>
+                <li class="cert-row">Data Analytics and Visualization (Swayam)</li>
+            </ul>
+        </div>
+
+        <!-- LANGUAGES SECTION -->
+        <div class="section-header">Languages</div>
+        <div class="langs-list">
+            <span class="lang-badge">English (Proficient)</span>
+            <span class="lang-badge">Kannada (Native)</span>
+            <span class="lang-badge">Hindi (Proficient)</span>
+        </div>
+
+    </div>
+
+</body>
+
+</html>

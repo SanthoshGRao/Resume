@@ -1,17 +1,36 @@
-# IDE files
-.gemini/
+# dependencies
+node_modules/
+/.pnpm-store
+
+# testing
+/coverage
+
+# next.js
+/.next/
+/out/
+
+# production
+/build
+
+# debug
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# local env files
+.env*.local
+
+# vercel
+.vercel
+
+# typescript
+*.tsbuildinfo
+next-env.d.ts
+
+# IDE / System
 .vscode/
 .idea/
-
-# OS files
-Thumbs.db
-Desktop.ini
+.gemini/
 .DS_Store
-
-# Temporary files
-*.tmp
-*.log
-
-# Personal/Generated files to exclude from Git
-*.pdf
-Santhosh_G_Rao_ATS_Optimized.html
+Thumbs.db
+_backup/

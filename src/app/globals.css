@@ -1,0 +1,55 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #0b0f19;
+  --foreground: #f8fafc;
+  --panel: #151c2c;
+  --border: #242f47;
+  --accent: #60a5fa;
+  --text-muted: #8295b4;
+}
+
+body {
+  color: var(--foreground);
+  background-color: var(--background);
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  overflow: hidden; /* Prevent body overflow so the OS dashboard handles layouts */
+}
+
+/* Custom Operating System Scrollbars */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(11, 15, 25, 0.5);
+}
+
+::-webkit-scrollbar-thumb {
+  background: #242f47;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #3b82f6;
+}
+
+/* Glassmorphism helpers */
+.glass-panel {
+  background: rgba(21, 28, 44, 0.4);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--border);
+}
+
+/* Custom Blink Animation */
+@keyframes blink {
+  50% { opacity: 0; }
+}
+
+.cursor-blink {
+  animation: blink 1s infinite;
+}
