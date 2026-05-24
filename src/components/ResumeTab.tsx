@@ -36,7 +36,7 @@ export default function ResumeTab() {
       {/* Action panel buttons */}
       <motion.div variants={itemVariants} className="grid grid-cols-2 md:grid-cols-4 gap-3">
         <a
-          href="/Resume/Santhosh_G_Rao_Resume.pdf"
+          href="/Santhosh_G_Rao_Resume.pdf"
           download
           className="flex items-center justify-center gap-2 border border-blue-900/40 bg-blue-950/10 text-blue-400 py-3 rounded-lg text-xs font-bold font-mono uppercase tracking-wide hover:bg-blue-950/20 transition-all select-none"
         >
@@ -44,7 +44,7 @@ export default function ResumeTab() {
           <span>Download PDF</span>
         </a>
         <a
-          href="/Resume/Santhosh_G_Rao_ATS_Optimized.html"
+          href="/Santhosh_G_Rao_ATS_Optimized.html"
           target="_blank"
           className="flex items-center justify-center gap-2 border border-slate-800 bg-slate-900/40 text-slate-300 py-3 rounded-lg text-xs font-bold font-mono uppercase tracking-wide hover:bg-slate-900/60 hover:border-slate-700 transition-all select-none"
         >
@@ -76,7 +76,7 @@ export default function ResumeTab() {
       >
         <div className="bg-slate-900/50 border-b border-slate-800 px-4 py-2 flex items-center justify-between text-[10px] font-mono text-slate-500">
           <span>Active Viewport: Santhosh_G_Rao_Resume.pdf</span>
-          <a href="/Resume/Santhosh_G_Rao_Resume.pdf" target="_blank" className="flex items-center gap-1 hover:text-blue-400 transition-all">
+          <a href="/Santhosh_G_Rao_Resume.pdf" target="_blank" className="flex items-center gap-1 hover:text-blue-400 transition-all">
             <span>Open in Tab</span>
             <ExternalLink className="w-3 h-3" />
           </a>
@@ -84,7 +84,7 @@ export default function ResumeTab() {
         
         {/* PDF embedding via iframe */}
         <iframe 
-          src="/Resume/Santhosh_G_Rao_Resume.pdf#toolbar=0&navpanes=0" 
+          src="/Santhosh_G_Rao_Resume.pdf#toolbar=0&navpanes=0" 
           className="w-full flex-1 border-none bg-slate-950"
           title="Santhosh G Rao Resume PDF"
         />
