@@ -1,0 +1,17 @@
+# IDE files
+.gemini/
+.vscode/
+.idea/
+
+# OS files
+Thumbs.db
+Desktop.ini
+.DS_Store
+
+# Temporary files
+*.tmp
+*.log
+
+# Personal/Generated files to exclude from Git
+*.pdf
+Santhosh_G_Rao_ATS_Optimized.html
